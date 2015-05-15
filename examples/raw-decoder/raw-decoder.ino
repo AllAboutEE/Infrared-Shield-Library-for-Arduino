@@ -1,103 +1,92 @@
-/* Raw IR decoder sketch!
- 
- This sketch/program uses the Arduno and a PNA4602 to 
- decode IR received. This can be used to make a IR receiver
- (by looking for a particular code)
- or transmitter (by pulsing an IR LED at ~38KHz for the
- durations detected 
- 
- Code is public domain, check out www.ladyada.net and adafruit.com
- for more tutorials! 
+/*
+ * IRremote: IRrecvDump - dump details of IR codes with IRrecv
+ * An IR detector/demodulator must be connected to the input RECV_PIN.
+ * Version 0.1 July, 2009
+ * Copyright 2009 Ken Shirriff
+ * http://arcfn.com
+ * JVC and Panasonic protocol added by Kristian Lauszus (Thanks to zenwheel and other people at the original blog post)
+ * LG added by Darryl Smith (based on the JVC protocol)
  */
+#include <Wire.h>
 
-// We need to use the 'raw' pin reading methods
-// because timing is very important here and the digitalRead()
-// procedure is slower!
-//uint8_t IRpin = 2;
-// Digital pin #2 is the same as Pin D2 see
-// http://arduino.cc/en/Hacking/PinMapping168 for the 'raw' pin mapping
-#define IRpin_PIN      PIND
-#define IRpin          4
+//#include  <AllAboutEE_IRremoteInt.h>
+#include <AllAboutEE_decoder_results.h>
 
-// the maximum pulse we'll listen for - 65 milliseconds is a long time
-#define MAXPULSE 65000
+//using namespace AllAboutEE;
 
-// what our timing resolution should be, larger is better
-// as its more 'precise' - but too large and you wont get
-// accurate timing
-#define RESOLUTION 20 
+int RECV_PIN = 3;
 
-// we will store up to 100 pulse pairs (this is -a lot-)
-uint16_t pulses[100][2];  // pair is high and low pulse 
-uint8_t currentpulse = 0; // index for pulses we're storing
+//IRrecv irrecv(RECV_PIN);
 
-void setup(void) {
-  Serial.begin(9600);
-  Serial.println("Ready to decode IR!");
+//decoder_results results;
+
+void setup()
+{
+ // Serial.begin(9600);
+  //.irrecv.enableIRIn(); // Start the receiver
 }
 
-void loop(void) {
-  uint16_t highpulse, lowpulse;  // temporary storage timing
-  highpulse = lowpulse = 0; // start out with no pulse length
-  
-  
-//  while (digitalRead(IRpin)) { // this is too slow!
-    while (IRpin_PIN & (1 << IRpin)) {
-     // pin is still HIGH
-
-     // count off another few microseconds
-     highpulse++;
-     delayMicroseconds(RESOLUTION);
-
-     // If the pulse is too long, we 'timed out' - either nothing
-     // was received or the code is finished, so print what
-     // we've grabbed so far, and then reset
-     if ((highpulse >= MAXPULSE) && (currentpulse != 0)) {
-       printpulses();
-       currentpulse=0;
-       return;
-     }
+// Dumps out the AllAboutEE_decoder_results structure.
+// Call this after AllAboutEE_IRrecv::decode()
+// void * to work around compiler issue
+//void dump(void *v) {
+//  AllAboutEE_decoder_results *results = (AllAboutEE_decoder_results *)v
+/*
+void dump(AllAboutEE::decoder_results *results) {
+  int count = results->rawlen;
+  if (results->decode_type == UNKNOWN) {
+    Serial.print("Unknown encoding: ");
+  } 
+  else if (results->decode_type == NEC) {
+    Serial.print("Decoded NEC: ");
+  } 
+  else if (results->decode_type == SONY) {
+    Serial.print("Decoded SONY: ");
+  } 
+  else if (results->decode_type == RC5) {
+    Serial.print("Decoded RC5: ");
+  } 
+  else if (results->decode_type == RC6) {
+    Serial.print("Decoded RC6: ");
   }
-  // we didn't time out so lets stash the reading
-  pulses[currentpulse][0] = highpulse;
+  else if (results->decode_type == PANASONIC) {	
+    Serial.print("Decoded PANASONIC - Address: ");
+    Serial.print(results->panasonicAddress,HEX);
+    Serial.print(" Value: ");
+  }
+  else if (results->decode_type == LG) {
+     Serial.print("Decoded LG: ");
+  }
+  else if (results->decode_type == JVC) {
+     Serial.print("Decoded JVC: ");
   
-  // same as above
-  while (! (IRpin_PIN & _BV(IRpin))) {
-     // pin is still LOW
-     lowpulse++;
-     delayMicroseconds(RESOLUTION);
-     if ((lowpulse >= MAXPULSE)  && (currentpulse != 0)) {
-       printpulses();
-       currentpulse=0;
-       return;
-     }
   }
-  pulses[currentpulse][1] = lowpulse;
 
-  // we read one high-low pulse successfully, continue!
-  currentpulse++;
-}
+  Serial.print(results->value, HEX);
+  Serial.print(" (");
+  Serial.print(results->bits, DEC);
+  Serial.println(" bits)");
+  Serial.print("Raw (");
+  Serial.print(count, DEC);
+  Serial.print("): ");
 
-void printpulses(void) {
-  Serial.println("\n\r\n\rReceived: \n\rOFF \tON");
-  for (uint8_t i = 0; i < currentpulse; i++) {
-    Serial.print(pulses[i][0] * RESOLUTION, DEC);
-    Serial.print(" usec, ");
-    Serial.print(pulses[i][1] * RESOLUTION, DEC);
-    Serial.println(" usec");
+  for (int i = 0; i < count; i++) {
+    if ((i % 2) == 1) {
+      Serial.print(results->rawbuf[i]*USECPERTICK, DEC);
+    } 
+    else {
+      Serial.print(-(int)results->rawbuf[i]*USECPERTICK, DEC);
+    }
+    Serial.print(" ");
   }
-  
-  // print it in a 'array' format
-  Serial.println("int IRsignal[] = {");
-  Serial.println("// ON, OFF (in 10's of microseconds)");
-  for (uint8_t i = 0; i < currentpulse-1; i++) {
-    Serial.print("\t"); // tab
-    Serial.print(pulses[i][1] * RESOLUTION, DEC);
-    Serial.print(", ");
-    Serial.print(pulses[i+1][0] * RESOLUTION, DEC);
-    Serial.println(",");
-  }
-  Serial.print("\t"); // tab
-  Serial.print(pulses[currentpulse-1][1] * RESOLUTION, DEC);
-  Serial.print(", 0};");
+  Serial.println("");
+}*/
+
+
+void loop() {
+ /* if (irrecv.decode(&results)) {
+    Serial.println(results.value, HEX);
+    dump(&results);
+    irrecv.resume(); // Receive the next value
+  }*/
 }

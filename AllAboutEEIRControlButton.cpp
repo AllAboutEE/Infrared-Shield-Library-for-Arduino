@@ -1,32 +1,30 @@
 #include "AllAboutEEIRControlButton.h"
 
-#include <std.h>
-
-AllAboutEEIRControlButton::AllAboutEEIRControlButton(ButtonID id)
+AllAboutEE::IRControlButton::AllAboutEEIRControlButton(ButtonID id)
 {
 	setId(id);
 }
 
 
-void AllAboutEEIRControlButton::setId(AllAboutEEIRControlButton::ButtonID id)
+void AllAboutEE::IRControlButton::setId(AllAboutEEIRControlButton::ButtonID id)
 {
 	this->id = id;
 }
 
-AllAboutEEIRControlButton::ButtonID AllAboutEEIRControlButton::getId(){
+AllAboutEE::IRControlButton::ButtonID AllAboutEEIRControlButton::getId(){
 	return this->id;
 }
 
-unsigned long AllAboutEEIRControlButton::getHexCode(){
+unsigned long AllAboutEE::IRControlButton::getHexCode(){
 	return this->hexCode;
 }
 
-void AllAboutEEIRControlButton::setHexCode(unsigned long hexCode){
+void AllAboutEE::IRControlButton::setHexCode(unsigned long hexCode){
 	
 	this->hexCode = hexCode;
 }
 
-void AllAboutEEIRControlButton::setCodeLength(int length){
+void AllAboutEE::IRControlButton::setCodeLength(int length){
 	this->codeLength = length;
 }
 
@@ -34,20 +32,20 @@ int AllAboutEEIRControlButton::getCodeLength(){
 	return this->codeLength;
 }
 
-unsigned int* AllAboutEEIRControlButton::getRawCode(){
+unsigned int* AllAboutEE::IRControlButton::getRawCode(){
 	return rawCode;
 }
 
-void AllAboutEEIRControlButton::setRawCode(unsigned int* rawCode,int length){
+void AllAboutEE::IRControlButton::setRawCode(unsigned int* rawCode,int length){
 
 	setCodeLength(length);
 	this->rawCode = rawCode;
 }
 
-void AllAboutEEIRControlButton::setProtocol(uint8_t irProtocol){
+void AllAboutEE::IRControlButton::setProtocol(uint8_t irProtocol){
 	this->irProtocol = irProtocol;
 }
 
-uint8_t AllAboutEEIRControlButton::getProtocol(){
+uint8_t AllAboutEE::IRControlButton::getProtocol(){
 	return this->irProtocol;
 }
