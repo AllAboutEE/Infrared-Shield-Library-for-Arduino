@@ -1,5 +1,5 @@
-#ifndef ALLABOUTEEIRCONTROL_H_
-#define ALLABOUTEEIRCONTROL_H_
+#ifndef _ALLABOUTEEIRCONTROL_H_
+#define _ALLABOUTEEIRCONTROL_H_
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -11,7 +11,7 @@
 #include "AllAboutEE_IRsend.h"
 #include "AllAboutEEIRControlButton.h"
 
-namespace
+namespace AllAboutEE
 {
 
     class IRControl

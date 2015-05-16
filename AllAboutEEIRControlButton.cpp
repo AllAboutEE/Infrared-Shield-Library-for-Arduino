@@ -1,17 +1,17 @@
 #include "AllAboutEEIRControlButton.h"
 
-AllAboutEE::IRControlButton::AllAboutEEIRControlButton(ButtonID id)
+AllAboutEE::IRControlButton::IRControlButton(AllAboutEE::IRControlButton::ButtonID id)
 {
 	setId(id);
 }
 
 
-void AllAboutEE::IRControlButton::setId(AllAboutEEIRControlButton::ButtonID id)
+void AllAboutEE::IRControlButton::setId(AllAboutEE::IRControlButton::ButtonID id)
 {
 	this->id = id;
 }
 
-AllAboutEE::IRControlButton::ButtonID AllAboutEEIRControlButton::getId(){
+AllAboutEE::IRControlButton::ButtonID AllAboutEE::IRControlButton::getId(){
 	return this->id;
 }
 
@@ -28,7 +28,7 @@ void AllAboutEE::IRControlButton::setCodeLength(int length){
 	this->codeLength = length;
 }
 
-int AllAboutEEIRControlButton::getCodeLength(){
+int AllAboutEE::IRControlButton::getCodeLength(){
 	return this->codeLength;
 }
 

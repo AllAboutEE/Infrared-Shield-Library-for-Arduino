@@ -26,29 +26,26 @@
 
 // Some useful constants
 
-#define USECPERTICK 50  // microseconds per clock interrupt tick
-#define RAWBUF 100 // Length of raw duration buffer
-
-// Marks tend to be 100us too long, and spaces 100us too short
-// when received due to sensor lag.
-#define MARK_EXCESS 100
-
-
-    // Results returned from the decoder
-    class decoder_results {
-    public:
-      int decode_type; // NEC, SONY, RC5, UNKNOWN
-      union { // This is used for decoding Panasonic and Sharp data
-        unsigned int panasonicAddress;
-        unsigned int sharpAddress;
-      };
-      unsigned long value; // Decoded value
-      int bits; // Number of bits in decoded value
-      volatile unsigned int *rawbuf; // Raw intervals in .5 us ticks
-      int rawlen; // Number of records in rawbuf.
+  #define USECPERTICK 50  // microseconds per clock interrupt tick
+  #define RAWBUF 100 // Length of raw duration buffer
+  
+  // Marks tend to be 100us too long, and spaces 100us too short
+  // when received due to sensor lag.
+  #define MARK_EXCESS 100
+  // Results returned from the decoder
+namespace AllAboutEE
+{
+  class decoder_results {
+  public:
+    int decode_type; // NEC, SONY, RC5, UNKNOWN
+    union { // This is used for decoding Panasonic and Sharp data
+      unsigned int panasonicAddress;
+      unsigned int sharpAddress;
     };
-
-
-
-
+    unsigned long value; // Decoded value
+    int bits; // Number of bits in decoded value
+    volatile unsigned int *rawbuf; // Raw intervals in .5 us ticks
+    int rawlen; // Number of records in rawbuf.
+  };
+}
 #endif

@@ -12,18 +12,18 @@ const uint8_t AllAboutEE::IRControl::SENDSHARPRAW = 0x06;
 const uint8_t AllAboutEE::IRControl::SAMSUNG = 0x07;
 const uint8_t AllAboutEE::IRControl::RAW = 0x08;
 // button objects
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonX = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::X);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonY = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::Y);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonZ = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::Z);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonUP = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::UP);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonDOWN = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::DOWN);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonLEFT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::LEFT);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonRIGHT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::RIGHT);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonSELECT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::SELECT);
-AllAboutEE::IRControlButton AllAboutEEIRControl::buttonNONE = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::NONE);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonX = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::X);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonY = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::Y);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonZ = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::Z);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonUP = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::UP);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonDOWN = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::DOWN);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonLEFT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::LEFT);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonRIGHT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::RIGHT);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonSELECT = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::SELECT);
+AllAboutEE::IRControlButton AllAboutEE::IRControl::buttonNONE = AllAboutEE::IRControlButton(AllAboutEE::IRControlButton::NONE);
 
-const int AllAboutEEIRControl::FLAG_READGPIO = 1;
-int AllAboutEEIRControl::flag = 0;
+const int AllAboutEE::IRControl::FLAG_READGPIO = 1;
+int AllAboutEE::IRControl::flag = 0;
 
 /** 
  *  
@@ -82,7 +82,7 @@ void AllAboutEE::IRControl::setButtonCode(AllAboutEE::IRControlButton &button, u
  */
 void AllAboutEE::IRControl::setButtonRawCode(AllAboutEE::IRControlButton &button,unsigned int* IRCode, int IRCodeLength)
 {
-	button.setProtocol(AllAboutEEIRControl::RAW);
+	button.setProtocol(AllAboutEE::IRControl::RAW);
 	button.setRawCode(IRCode,IRCodeLength);
 }
 
@@ -121,7 +121,7 @@ void AllAboutEE::IRControl::sendSignal()
  * 
  * @return AllAboutEEIRControlButton 
  */
-AllAboutEE::IRControlButton AllAboutEEIRControl::getButton(AllAboutEE::IRControlButton::ButtonID gpioValue)
+AllAboutEE::IRControlButton AllAboutEE::IRControl::getButton(AllAboutEE::IRControlButton::ButtonID gpioValue)
 {
 
 	if(gpioValue != AllAboutEE::IRControlButton::NONE)

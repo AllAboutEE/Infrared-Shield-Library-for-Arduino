@@ -9,21 +9,22 @@
  */
 #include <Wire.h>
 
-//#include  <AllAboutEE_IRremoteInt.h>
+#include <AllAboutEEIRControl.h>
 #include <AllAboutEE_decoder_results.h>
+#include <AllAboutEE_IRrecv.h>
 
-//using namespace AllAboutEE;
+using namespace AllAboutEE;
 
 int RECV_PIN = 3;
 
-//IRrecv irrecv(RECV_PIN);
+IRrecv irrecv(RECV_PIN);
 
-//decoder_results results;
+decoder_results results;
 
 void setup()
 {
- // Serial.begin(9600);
-  //.irrecv.enableIRIn(); // Start the receiver
+ Serial.begin(9600);
+ irrecv.enableIRIn(); // Start the receiver
 }
 
 // Dumps out the AllAboutEE_decoder_results structure.
@@ -31,7 +32,7 @@ void setup()
 // void * to work around compiler issue
 //void dump(void *v) {
 //  AllAboutEE_decoder_results *results = (AllAboutEE_decoder_results *)v
-/*
+
 void dump(AllAboutEE::decoder_results *results) {
   int count = results->rawlen;
   if (results->decode_type == UNKNOWN) {
@@ -80,13 +81,12 @@ void dump(AllAboutEE::decoder_results *results) {
     Serial.print(" ");
   }
   Serial.println("");
-}*/
-
+}
 
 void loop() {
- /* if (irrecv.decode(&results)) {
+  if (irrecv.decode(&results)) {
     Serial.println(results.value, HEX);
     dump(&results);
     irrecv.resume(); // Receive the next value
-  }*/
+  }
 }

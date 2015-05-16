@@ -1,6 +1,25 @@
 [Global]
 CurrentProject=AllAboutEE-IR-Shield-Library.vpj
 [ProjectDates]
-AllAboutEE-IR-Shield-Library.vpj=20150515154128947
+AllAboutEE-IR-Shield-Library.vpj=20150515163154542
 [ActiveConfig]
 AllAboutEE-IR-Shield-Library.vpj=Debug
+[State]
+SCREEN: 1366 768 -1283 -192 1171 906 0 0 M 0 0 0 0 1671 594 0
+CWD: \Users
+FILEHIST: 9
+AllAboutEE_IRremoteInt.h
+AllAboutEE_IRrecv.cpp
+AllAboutEE_IRrecv.h
+AllAboutEE_IRsend.cpp
+AllAboutEE_decoder_results.cpp
+examples\raw-decoder\raw-decoder.ino
+\Users\Miguel\Desktop\test\AllAboutEE_decoder_results.h
+AllAboutEE_decoder_results.h
+\Users\Miguel\Desktop\test\ABllAboutEE_decoder_results.h
+TBCLASS: 0 0
+DEBUG: 0 0 0 0 3 0 gdb
+printf
+strcpy
+std::*
+DEBUG2: 0

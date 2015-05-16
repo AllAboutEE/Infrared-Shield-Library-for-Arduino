@@ -96,8 +96,3 @@ ISR(TIMER_INTR_NAME)
     }
   }
 }
-
-AllAboutEE::decoder_results::decoder_results()
-{
-
-}
