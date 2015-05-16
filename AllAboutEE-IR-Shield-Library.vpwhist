@@ -5,18 +5,26 @@ AllAboutEE-IR-Shield-Library.vpj=20150515163154542
 [ActiveConfig]
 AllAboutEE-IR-Shield-Library.vpj=Debug
 [State]
-SCREEN: 1366 768 -1283 -192 1171 906 0 0 M 0 0 0 0 1671 594 0
-CWD: \Users
+SCREEN: 1366 768 -1283 -192 1172 907 0 0 M 0 0 0 0 1671 594 0
+CWD: examples\IRrecvDump
+BUFFER: BN="examples\IRrecvDump\IRrecvDump.ino"
+BI: MA=1 74 1  TABS=1 5  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=C/C++	HM=0 MF=119603296 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=70 ESBU2=71 CL="" SC="" SCE= SCU=
+VIEW: LN=.0 CL=1 LE=0 CX=1 CY=0 WI=5 BI=10 HT=0 HN=0 HF=0 HC=4
+WINDOW: 1 22 1669 571 0 0 N  WF=0 WT=2 "Default Unicode Font,10,0,1" DID=0
+BUFFER: BN="examples\IRrecvDump\IRrecvDump.ino"
+VIEW: LN=.956 CL=11 LE=0 CX=11 CY=16 WI=83 BI=10 HT=0 HN=0 HF=0 HC=4
+MDISTATE: 1
+AAAAAAAAAAHaAAAAAAAAADcAAAd/AAAEC+oAAAAC+gAAAAEAAAABAAAAAPoAAAABAAAAAQAAAAD8AAAA2AAyADoAOgA6AEMAOgBcAFAAcgBvAGcAcgBhAG0AIABGAGkAbABlAHMAIAAoAHgAOAA2ACkAXABBAHIAZAB1AGkAbgBvAFwAbABpAGIAcgBhAHIAaQBlAHMAXABBAGwAbABBAGIAbwB1AHQARQBFAC0ASQBSAC0AUwBoAGkAZQBsAGQALQBMAGkAYgByAGEAcgB5AFwAZQB4AGEAbQBwAGwAZQBzAFwASQBSAHIAZQBjAHYARAB1AG0AcABcAEkAUgByAGUAYwB2AEQAdQBtAHAALgBpAG4AbwEA/////wAB
 FILEHIST: 9
-AllAboutEE_IRremoteInt.h
-AllAboutEE_IRrecv.cpp
-AllAboutEE_IRrecv.h
-AllAboutEE_IRsend.cpp
-AllAboutEE_decoder_results.cpp
-examples\raw-decoder\raw-decoder.ino
-\Users\Miguel\Desktop\test\AllAboutEE_decoder_results.h
 AllAboutEE_decoder_results.h
-\Users\Miguel\Desktop\test\ABllAboutEE_decoder_results.h
+keywords.txt
+library.properties
+AllAboutEE_IRrecv.h
+AllAboutEE_IRControl.h
+AllAboutEE_decoder_results.cpp
+AllAboutEE_IRControl.cpp
+AllAboutEE_IRrecv.cpp
+examples\IRrecvDump\IRrecvDump.ino
 TBCLASS: 0 0
 DEBUG: 0 0 0 0 3 0 gdb
 printf

@@ -8,7 +8,6 @@
  * LG added by Darryl Smith (based on the JVC protocol)
  */
 #include <Wire.h>
-
 #include <AllAboutEE_IRControl.h>
 #include <AllAboutEE_decoder_results.h>
 #include <AllAboutEE_IRrecv.h>
@@ -23,8 +22,16 @@ decoder_results results;
 
 void setup()
 {
- Serial.begin(9600);
- irrecv.enableIRIn(); // Start the receiver
+  Serial.begin(9600);
+  irrecv.enableIRIn(); // Start the receiver
+}
+
+void loop() {
+  if (irrecv.decode(&results)) {
+    Serial.println(results.value, HEX);
+    dump(&results);
+    irrecv.resume(); // Receive the next value
+  }
 }
 
 // Dumps out the AllAboutEE_decoder_results structure.
@@ -81,12 +88,4 @@ void dump(decoder_results *results) {
     Serial.print(" ");
   }
   Serial.println("");
-}
-
-void loop() {
-  if (irrecv.decode(&results)) {
-    Serial.println(results.value, HEX);
-    dump(&results);
-    irrecv.resume(); // Receive the next value
-  }
 }
