@@ -26,21 +26,16 @@ void setup()
   irrecv.enableIRIn(); // Start the receiver
 }
 
+void output(decoder_results *results);
+
 void loop() {
   if (irrecv.decode(&results)) {
     Serial.println(results.value, HEX);
-    dump(&results);
+    output(&results);
     irrecv.resume(); // Receive the next value
   }
 }
-
-// Dumps out the AllAboutEE_decoder_results structure.
-// Call this after AllAboutEE_IRrecv::decode()
-// void * to work around compiler issue
-//void dump(void *v) {
-//  AllAboutEE_decoder_results *results = (AllAboutEE_decoder_results *)v
-
-void dump(decoder_results *results) {
+void output(decoder_results *results) {
   int count = results->rawlen;
   if (results->decode_type == UNKNOWN) {
     Serial.print("Unknown encoding: ");
