@@ -14,7 +14,7 @@
 
 using namespace AllAboutEE;
 
-int RECV_PIN = 3;
+int RECV_PIN = 4;
 
 IRrecv irrecv(RECV_PIN);
 
