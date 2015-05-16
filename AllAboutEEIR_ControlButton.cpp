@@ -1,4 +1,4 @@
-#include "AllAboutEEIRControlButton.h"
+#include "AllAboutEE_IRControlButton.h"
 
 AllAboutEE::IRControlButton::IRControlButton(AllAboutEE::IRControlButton::ButtonID id)
 {

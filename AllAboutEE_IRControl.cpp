@@ -1,5 +1,5 @@
-#include "AllAboutEEIRControl.h"
-#include "AllAboutEEIRControlButton.h"
+#include "AllAboutEE_IRControl.h"
+#include "AllAboutEE_IRControlButton.h"
 
 
 // IR protocol

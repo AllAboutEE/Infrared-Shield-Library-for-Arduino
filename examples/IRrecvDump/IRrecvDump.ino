@@ -9,7 +9,7 @@
  */
 #include <Wire.h>
 
-#include <AllAboutEEIRControl.h>
+#include <AllAboutEE_IRControl.h>
 #include <AllAboutEE_decoder_results.h>
 #include <AllAboutEE_IRrecv.h>
 
@@ -33,7 +33,7 @@ void setup()
 //void dump(void *v) {
 //  AllAboutEE_decoder_results *results = (AllAboutEE_decoder_results *)v
 
-void dump(AllAboutEE::decoder_results *results) {
+void dump(decoder_results *results) {
   int count = results->rawlen;
   if (results->decode_type == UNKNOWN) {
     Serial.print("Unknown encoding: ");

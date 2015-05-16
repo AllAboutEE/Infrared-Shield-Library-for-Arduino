@@ -11,7 +11,7 @@
 #include <Wire.h>
 #include <Adafruit_MCP23008.h>
 #include <AllAboutEE_IRsend.h>
-#include <AllAboutEEIRControl.h>
+#include <AllAboutEE_IRControl.h>
 
 using namespace AllAboutEE;
 

@@ -6,7 +6,7 @@
  * http://arcfn.com
  */
 #include <Wire.h>
-#include <AllAboutEEIRControl.h>
+#include <AllAboutEE_IRControl.h>
 #include <AllAboutEE_decoder_results.h>
 #include <AllAboutEE_IRrecv.h>
 

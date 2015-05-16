@@ -1,5 +1,5 @@
-#ifndef _ALLABOUTEEIRCONTROL_H_
-#define _ALLABOUTEEIRCONTROL_H_
+#ifndef _ALLABOUTEE_IRCONTROL_H_
+#define _ALLABOUTEE_IRCONTROL_H_
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -9,7 +9,7 @@
 
 #include "Adafruit_MCP23008.h"
 #include "AllAboutEE_IRsend.h"
-#include "AllAboutEEIRControlButton.h"
+#include "AllAboutEE_IRControlButton.h"
 
 namespace AllAboutEE
 {

@@ -13,8 +13,8 @@
 * LG added by Darryl Smith (based on the JVC protocol)
  */
 
-#ifndef ALLABOUTEE_DECODER_RESULTS_H
-#define ALLABOUTEE_DECODER_RESULTS_H
+#ifndef _ALLABOUTEE_DECODER_RESULTS_H
+#define _ALLABOUTEE_DECODER_RESULTS_H
 
 // The following are compile-time library options.
 // If you change them, recompile the library.
