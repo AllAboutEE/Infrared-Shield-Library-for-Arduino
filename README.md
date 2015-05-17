@@ -2,11 +2,25 @@
 
 ![Infrared remote control shield for Arduino](https://raw.github.com/AllAboutEE/Infrared-Shield-for-Arduino/master/Hardware/Arduino-Infrared-Shield-Remote-Control-Angle-View.jpg)
 
+### Examples
+
+The example sketches are located in the "exapmles" folder, they include:
+
+* All-in-one: TV, Fan, Xbox One media control - Let's you control various devices
+* XboxOne media remote - simulates the [XboxOne infrared media remote](http://www.xbox.com/en-US/xbox-one/accessories/controllers/media-remote), but not for playing games (can only be used to navigate XboxOne content)
+* TV - simulates a control for a [Hisense TV model 50K610GWN](http://global.hisense.com/product/northa/tv/led/K610/201401/t20140117_86826.htm)
+* Fan - simulates a control for a [Lasko fan model u35102](http://www.laskoproducts.com/oscillating-high-velocity-fan-with-remote-control-model-u35102/)
+* Lightbulb - simulates the control for an [RGB light bulb](http://www.amazon.com/SUPERNIGHT-Standard-Changing-Dimmable-Decoration/dp/B00CEOSGRY/ref=sr_1_sc_1?ie=UTF8&qid=1431819498&sr=8-1-spell&keywords=rgb+ir+light+bolb)
+* Decoder examples so you can make your own!
+
 ## Compatibility:
 
 * These software libraries are only compatible with Arduino Uno R3, and Arduino Mega 2560 R3. The shield might be comptabile with other software libraries for other Arduino boards if and only if the libraries support a receiver on digital pin 4, and a transmitter on digital pin 9.
 
 * The Arduino board you use needs to have the two I2C pins SCL and SDA above the AREF pin. See photos [Uno Front](http://www.arduino.cc/en/uploads/Main/ArduinoUno_R3_Front.jpg), and [Uno Back](http://www.arduino.cc/en/uploads/Main/ArduinoUno_R3_Back.jpg) for reference.
+
+## Hardware
+See [Infrared Shield for Arduino](https://github.com/AllAboutEE/Infrared-Shield-for-Arduino) for specs, schematics, etc.
 
 ## Software Library
 The library we developed for this shield is a fork from the [most popular IR shield library](https://github.com/shirriff/Arduino-IRremote).
@@ -100,18 +114,3 @@ Now assign the array to a button:
 ### Send Signals Automatically i.e. Without Needing a Button Press
 
 See example [Send_Without_Button_Press](https://github.com/AllAboutEE/Infrared-Shield-Library-for-Arduino/blob/master/examples/Send_Without_Button_Press/Send_Without_Button_Press.ino)
-
-### Examples
-
-The example sketches are located in the "exapmles" folder, they include:
-
-* All-in-one: TV, Fan, Xbox One media control - Let's you control various devices
-* XboxOne media remote - simulates the [XboxOne infrared media remote](http://www.xbox.com/en-US/xbox-one/accessories/controllers/media-remote), but not for playing games (can only be used to navigate XboxOne content)
-* TV - simulates a control for a [Hisense TV model 50K610GWN](http://global.hisense.com/product/northa/tv/led/K610/201401/t20140117_86826.htm)
-* Fan - simulates a control for a [Lasko fan model u35102](http://www.laskoproducts.com/oscillating-high-velocity-fan-with-remote-control-model-u35102/)
-* Lightbulb - simulates the control for an [RGB light bulb](http://www.amazon.com/SUPERNIGHT-Standard-Changing-Dimmable-Decoration/dp/B00CEOSGRY/ref=sr_1_sc_1?ie=UTF8&qid=1431819498&sr=8-1-spell&keywords=rgb+ir+light+bolb)
-* Decoder examples so you can make your own!
-
-## Hardware
-
-See [Infrared Shield for Arduino](https://github.com/AllAboutEE/Infrared-Shield-for-Arduino) for specs, schematics, etc.
