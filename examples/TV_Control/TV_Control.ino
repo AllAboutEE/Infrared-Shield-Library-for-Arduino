@@ -1,5 +1,7 @@
 /** 
- * @brief An infrared remote control for an Xbox One.
+ * @brief An infrared remote control for an Hisense TV. 
+ *  
+ * @author AllAboutEE (Miguel Alvarez)
  */
 
 #include <Wire.h>

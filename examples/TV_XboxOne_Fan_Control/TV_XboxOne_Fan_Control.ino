@@ -1,5 +1,5 @@
 /** 
- * 
+ * @author AllAboutEE (Miguel Alvarez)
  *  
  * @brief An infrared remote control for an Xbox One, Hisense TV
  *        (EN-33926A), and Lasko fan (model u35102). Three

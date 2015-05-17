@@ -1,5 +1,5 @@
 /** 
- * @brief An infrared remote control for a light bulb.
+ * @brief An infrared remote control for a Lasko brand fan.
  */
 
 #include <Wire.h>

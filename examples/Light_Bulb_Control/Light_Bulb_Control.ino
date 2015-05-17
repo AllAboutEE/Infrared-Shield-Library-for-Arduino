@@ -1,5 +1,7 @@
 /** 
- * @brief An infrared remote control for a light bulb.
+ * @brief An infrared remote control for a light bulb. 
+ *  
+ * @author AllAboutEE (Miguel Alvarez) 
  */
 
 #include <Wire.h>
