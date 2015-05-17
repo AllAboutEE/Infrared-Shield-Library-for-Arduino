@@ -96,6 +96,11 @@ Now assign the array to a button:
        sizeof(raw_code)/sizeof(raw_code[0]) // length of ir code
     );
 ```
+
+### Send Signals Automatically i.e. Without Needing a Button Press
+
+See example [Send_Without_Button_Press](https://github.com/AllAboutEE/Infrared-Shield-Library-for-Arduino/blob/master/examples/Send_Without_Button_Press/Send_Without_Button_Press.ino)
+
 ### Examples
 
 The example sketches are located in the "exapmles" folder, they include:
