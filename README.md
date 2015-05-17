@@ -2,6 +2,12 @@
 
 ![Infrared remote control shield for Arduino](https://raw.github.com/AllAboutEE/Infrared-Shield-for-Arduino/master/Hardware/Arduino-Infrared-Shield-Remote-Control-Angle-View.jpg)
 
+## Compatibility:
+
+* These software libraries are only compatible with Arduino Uno R3, and Arduino Mega 2560 R3. The shield might be comptabile with other software libraries for other Arduino boards if and only if the libraries support a receiver on digital pin 4, and a transmitter on digital pin 9.
+
+* The Arduino board you use needs to have the two I2C pins SCL and SDA above the AREF pin. See photos [Uno Front](http://www.arduino.cc/en/uploads/Main/ArduinoUno_R3_Front.jpg), and [Uno Back](http://www.arduino.cc/en/uploads/Main/ArduinoUno_R3_Back.jpg) for reference.
+
 ## Software Library
 The library we developed for this shield is a fork from the [most popular IR shield library](https://github.com/shirriff/Arduino-IRremote).
 
@@ -34,15 +40,15 @@ Some remote controls you decode might not use any standard IR protocol, in this 
     
 This raw code needs some cleaning however:
 
-1. Copy and past the code into a text editor like notepad
+1. Copy and paste the code into a text editor like notepad
 2. Delete the first element, in this case "-16246"
 3. Remove the negative signs e.g. -550 will become 550, -600 will become 600
 
-The raw code should now look like this(for the example above):
+The raw code should now look like this for the example above:
 
     Raw (68):  8950 4500 600 550 550 600 500 600 550 550 600 550 550 550 550 600 550 550 550 1700 550 1650 600 1700 550 1700 550 1650 600 1700 550 1650 600 1650 600 550 600 1650 600 1650 550 600 550 550 600 550 550 550 550 600 550 1650 600 550 550 600 500 1700 600 1650 600 1650 550 1700 600 1650 600 
 
-It is ready to be used, continue reading below.
+Each element respresents a high or low pulse in micro-seconds. The code starts with a high pulse then alternates to low, then high again and so on. It is ready to be used, continue reading below.
 
 ## How To Send IR Signals
 
@@ -57,13 +63,15 @@ Let's assume you have the following IR decoded output:
 
 You can use the recognized protol code:
 
+```cpp
     irControl.setButtonCode(
       IRControl::buttonY, // assign the code to button Y
       IRControl::NEC, // IR protocol
       0xFF609F, // infrared code
       32 // length of ir code
     );
-    
+```
+
 The available protocols are:
 
     	NEC
@@ -80,14 +88,14 @@ Or you can use the raw code. First, make an array from the raw code:
     unsigned int raw_code[] = {8950,4500,600,550,550,600,500,600,550,550,600,550,550,550,550,600,550,550,550,1700,550,1650,600,1700,550,1700,550,1650,600,1700,550,1650,600,1650,600,550,600,1650,600,1650,550,600,550,550,600,550,550,550,550,600,550,1650,600,550,550,600,500,1700,600,1650,600,1650,550,1700,600,1650,600};
            
 Now assign the array to a button:
-
+```cpp
     // configure Z button
      irControl.setButtonRawCode(
        IRControl::buttonZ, // assign the code to button z
        raw_code, // array name
        sizeof(raw_code)/sizeof(raw_code[0]) // length of ir code
     );
-
+```
 ### Examples
 
 The example sketches are located in the "exapmles" folder, they include:
