@@ -2,6 +2,8 @@
 
 ![Infrared remote control shield for Arduino](https://raw.github.com/AllAboutEE/Infrared-Shield-for-Arduino/master/Hardware/Arduino-Infrared-Shield-Remote-Control-Angle-View.jpg)
 
+You can buy the shield from here: [Infrared Control Shield for Arduino](https://www.tindie.com/products/AllAboutEE/infrared-remote-control-shield-for-arduino/?utm_source=GitHub%20README&utm_medium=Manual&utm_campaign=IR%20Shield)
+
 ### Examples
 
 The example sketches are located in the "exapmles" folder, they include:
